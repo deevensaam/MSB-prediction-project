@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/5.2.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
+    <title>MSB Prepayment Risk Prediction</title>
+
+    <style>
+
+              .header-right {
+            float: right;
+            }
+            
+ 
+    </style>
+    
+</head>
+<body>
+    <div class="container mb-3 text-muted">
+      <body style="background-color:powderblue;">
+      <h1><strong>MSB Prepayment Risk Prediction</strong></h1>
+
+      </body>
+    </div>
+    <br><br>
+    <div class="container jumbotron">
+      <form method="POST" id='postForm'>
+        <div class="form-group">
+
+              <div class="row">
+                <div class="col-sm-6">
+                    <label for="CreditScore"><b>Credit score: </b></label>    	
+                    <input class="form-control" type="number" id="CreditScore" name="CreditScore" placeholder="CreditScore" min="300" max="850" required>            
+                </div>
+              
+
+                <div class="col-sm-6">
+                  <label for="FirstTimeHomebuyer"><b>First Time Home Buyer: </b></label>
+                  <select class="form-select" id="FirstTimeHomebuyer" name="FirstTimeHomebuyer" required>
+                      <option value=" Y"> Yes</option>
+                      <option value=" N"> No</option>
+                  </select>
+              </div>
+              </div>
+              <br>
+              
+              <div class="row">
+              <div class="col-sm-6">
+                <label for="MSA"><b>Marketing Services Agreement: </b></label>
+                <input class="form-select" id="MSA" name="MSA" placeholder="5 digit number(X if not available)" required>
+                <!-- <select class="form-select" id="MSA" name="MSA"> 
+                <option value = " "> </option>option>  
+                  <option value="X">X</option>
+                </select> -->
+            </div>
+
+            <div class="col-sm-6">
+              <label for="MIP"><b>Mortgage Insurance Percentage: </b></label>    	
+              <input class="form-control" type="number" id="MIP" name="MIP" placeholder="0 to 55" min="0" max="55" required>            
+          </div>
+          </div><br>
+
+          <div class="row">
+          <div class="col-sm-6">
+            <label for="Units"><b>Units: </b></label>
+            <select class="form-select" id="Units" name="Units">
+                <option value=" 1"> 1</option>
+                <option value=" 2"> 2</option>
+                <option value=" 3"> 3</option>
+                <option value=" 4"> 4</option>
+            </select>
+        </div>
+
+                <div class="col-sm-6">
+                    <label for="Occupancy"><b>Occupancy: </b></label>
+                    <select class="form-select" id="Occupancy" name="Occupancy">
+                        <option value=" O"> Owner occupied</option>
+                        <option value=" I"> Investment property</option>
+                        <option value=" S"> Second home</option>
+                    </select>
+                </div>
+                </div><br>
+
+                
+                <div class="row">
+                <div class="col-sm-6">
+                  <label for="OCLTV"><b>Original Combined Loan to Value: </b></label>    	
+                  <input class="form-control" type="number" id="OCLTV" name="OCLTV" placeholder="40 to 110" min="40" max="110" required>            
+              </div>
+
+                <div class="col-sm-6">
+                    <label for="DTI"><b>Debt to income: </b></label>
+                    <input class="form-control" type="number" id="DTI" name="DTI" placeholder="0 to 65" min ="0" max = "65" required>
+                </div>
+                  </div><br>
+
+                <div class="row">
+
+                <div class="col-sm-6">
+                  <label for="OrigUPB"><b>Original Unpaid balance: </b></label>
+                  <input class="form-control" type="number" id="OrigUPB" name="OrigUPB" placeholder="10000 to 272000" min ="10000" max = "272000" required>
+              </div>
+
+                <div class="col-sm-6">
+                    <label for="OrigInterestRate"><b>OrigInterestRate: </b></label>
+                    <input class="form-control" id="OrigInterestRate" name="OrigInterestRate" placeholder="Interest rate of loan" min="5" max="12" required>
+                </div>
+              </div><br>
+
+
+              <div class="row">
+
+                <div class="col-sm-6">
+                    <label for="Channel"><b>Channel: </b></label>
+                    <select class="form-select" id="Channel" name="Channel">
+                        <option value=" T"> Third party</option>
+                        <option value=" R"> Retail</option>
+                        <option value=" C"> Correspondent</option>
+                        <option value=" B"> Broker</option>
+                    </select>
+                </div>
+
+
+              <div class="col-sm-6">
+                <label for="PPM"><b>PPM: </b></label>
+                <select class="form-select" id="PPM" name="PPM">
+                    <option value=" Y"> Yes</option>
+                    <option value=" N"> No</option>
+                </select>
+            </div>
+            </div><br>
+
+            <div class="row">
+                <div class="col-sm-6">
+                    <label for="PropertyState"><b>Property state: </b></label>
+                    <select class="form-select" id="PropertyState" name="PropertyState">
+                     <option value=" IL"> IL</option>
+                        <option value=" CO"> CO</option>
+                        <option value=" KS"> KS</option>
+                        <option value=" CA"> CA</option>
+                        <option value=" NJ"> NJ</option>
+                        <option value=" WI"> WI</option>
+                        <option value=" FL"> FL</option>
+                        <option value=" CT"> CT</option>
+                        <option value=" GA"> GA</option>
+                        <option value=" TX"> TX</option>
+                        <option value=" MD"> MD</option>
+                        <option value=" MA"> MA</option>
+                        <option value=" SC"> SC</option>
+                        <option value=" WY"> WY</option>
+                        <option value=" NC"> NC</option>
+                        <option value=" AZ"> AZ</option>
+                        <option value=" IN"> IN</option>
+                        <option value=" MS"> MS</option>
+                        <option value=" NY"> NY</option>
+                        <option value=" WA"> WA</option>
+                        <option value=" AR"> AR</option>
+                        <option value=" VA"> VA</option>
+                        <option value=" MN"> MN</option>
+                        <option value=" LA"> LA</option>
+                        <option value=" PA"> PA</option>
+                        <option value=" OR"> OR</option>
+                        <option value=" RI"> RI</option>
+                        <option value=" UT"> UT</option>
+                        <option value=" MI"> MI</option>
+                        <option value=" TN"> TN</option>
+                        <option value=" AL"> AL</option>
+                        <option value=" MO"> MO</option>
+                        <option value=" IA"> IA</option>
+                        <option value=" NM"> NM</option>
+                        <option value=" NV"> NV</option>
+                        <option value=" VT"> VT</option>
+                        <option value=" OH"> OH</option>
+                        <option value=" NE"> NE</option>
+                        <option value=" HI"> HI</option>
+                        <option value=" ID"> ID</option>
+                        <option value=" PR"> PR</option>
+                        <option value=" DC"> DC</option>
+                        <option value=" GU"> GU</option>
+                        <option value=" KY"> KY</option>
+                        <option value=" NH"> NH</option>
+                        <option value=" SD"> SD</option>
+                        <option value=" ME"> ME</option>
+                        <option value=" MT"> MT</option>
+                        <option value=" OK"> OK</option>
+                        <option value=" TX"> TX</option>
+                        <option value=" WV"> WV</option>
+                        <option value=" DE"> DE</option>
+                        <option value=" ND"> ND</option>
+                        <option value=" AK"> AK</option>    
+                    </select>
+                </div>
+
+                <div class="col-sm-6">
+                    <label for="PropertyType"><b>Property Type: </b></label>
+                    <select class="form-select" id="PropertyType" name="PropertyType">
+                        <option value=" SF"> Single Family</option>
+                        <option value=" PU"> Planned unit development</option>
+                        <option value=" CO"> Condominium</option>
+                        <option value=" MH"> Manufactured home</option>
+                        <option value=" CP"> Cooperative property share</option>
+                        <option value=" LH"> Lease hold</option>
+                        <option value=" X"> Not available</option>
+                    </select>  
+                </div>
+                </div><br>
+
+                <div class="row">
+                <div class="col-sm-6">
+                    <label for="LoanPurpose"><b>Purpose of loan: </b></label>
+                    <select class="form-select" id="LoanPurpose" name="LoanPurpose">
+                       <option value=" P"> Purchase mortgage</option>
+                       <option value=" N"> No cash out reference mortgage </option>
+                       <option value=" C"> Cash out reference mortgage</option>
+                    </select>
+                </div>
+
+                <div class="col-sm-6">
+                  <label for="OrigLoanTerm"><b>Original Loan Team: </b></label>
+                  <input class="form-control" type="number" id="OrigLoanTerm" name="OrigLoanTerm" placeholder="OrigLoanTerm" min="300" max="370" required>
+              </div>
+              </div><br>
+
+              <div class="row">
+                <div class="col-sm-4">
+                    <label for="NumBorrowers"><b>Number of Borrowers:</b></label>
+                    <select class="form-select" id="NumBorrowers" name="NumBorrowers">
+                        <option value=" 1"> 1</option>
+                        <option value=" 2"> 2</option>
+                    </select>
+                </div>              
+
+
+                <div class="col-sm-4">
+                  <label for="SellerName"><b>Name of seller: </b></label>
+                  <select class="form-select" id="SellerName" name="SellerName">
+                      <option value=" FL"> FL</option>
+                      <option value=" FT"> FT</option>
+                      <option value=" GM"> GM</option>
+                      <option value=" Ot"> Ot</option>
+                      <option value=" RE"> RE</option>
+                      <option value=" NO"> NO</option>
+                      <option value=" ST"> ST</option>
+                      <option value=" CR"> CR</option>
+                      <option value=" CH"> CH</option>
+                      <option value=" FI"> FI</option>
+                      <option value=" HO"> HO</option>
+                      <option value=" PR"> PR</option>
+                      <option value=" NA"> NA</option>
+                      <option value=" PN"> PN</option>
+                      <option value=" WA"> WA</option>
+                      <option value=" BA"> BA</option>
+                      <option value=" G"> G</option>
+                      <option value=" OL"> OL</option>
+                      <option value=" AC"> AC</option>
+                      <option value=" CO"> CO</option>
+                      <option value=" BI"> BI</option></i>
+                  </select>
+              </div>
+
+                <div class="col-sm-4">
+                  <label for="ServicerName"><b>Name of the bank: </b></label>
+                  <select class="form-select" id="ServicerName" name="ServicerName">
+                   <option value=" WASHINGTONMUTUALBANK"> WASHINGTONMUTUALBANK</option>
+                     <option value=" CHASEHOMEFINANCELLC "> CHASEHOMEFINANCELLC </option>
+                     <option value=" GMACMTGECORP"> GMACMTGECORP</option>
+                     <option value=" Other servicers  "> Other servicers  </option>
+                     <option value=" WELLSFARGOBANKNA "> WELLSFARGOBANKNA </option>
+                     <option value=" ABNAMROMTGEGROUPINC"> ABNAMROMTGEGROUPINC</option>
+                     <option value=" BANKOFAMERICANA  "> BANKOFAMERICANA  </option>
+                     <option value=" CHASEMANHATTANMTGECO"> CHASEMANHATTANMTGECO</option>
+                     <option value=" HOMESIDELENDINGINC "> HOMESIDELENDINGINC </option>
+                     <option value=" CHASEMTGECO "> CHASEMTGECO </option>
+                     <option value=" WELLSFARGOHOMEMORTGA"> WELLSFARGOHOMEMORTGA</option>
+                     <option value=" PRINCIPALRESIDENTIAL"> PRINCIPALRESIDENTIAL</option>
+                     <option value=" CITIMORTGAGEINC  "> CITIMORTGAGEINC  </option>
+                     <option value=" JPMORGANCHASEBANKNA"> JPMORGANCHASEBANKNA</option>
+                     <option value=" BAMORTGAGELLC   "> BAMORTGAGELLC   </option>
+                     <option value=" NATLCITYMTGECO"> NATLCITYMTGECO</option>
+                     <option value=" FTMTGESERVICESINC"> FTMTGE SERVICES INC</option>
+                     <option value=" SUNTRUSTMORTGAGEINC"> SUN TRUST MORTGAGE INC</option>
+                     <option value=" COUNTRYWIDE"> COUNTRY WIDE</option>
+                     <option value=" FIFTHTHIRDBANK"> FIFTH THIRD BANK</option>
+
+                  </select>
+              </div>
+            </div><br>
+
+
+            <div class="row">
+
+                <div class="col-sm-6">
+                  <label for="MonthsDelinquent"><b>Months Delinquent: </b></label>
+                  <input class="form-control" type="number" id="MonthsDelinquent" name="MonthsDelinquent" placeholder="MonthsDelinquent" min="0" max="180" required>
+              </div>
+
+              <div class="col-sm-6">
+                <label for="MonthsInRepayment"><b>Months In Repayment: </b></label>
+                <input class="form-control" type="number" id="MonthsInRepayment" name="MonthsInRepayment" placeholder="MonthsInRepayment" min="1" max="212" required>
+            </div>
+          </div><br>
+
+
+                <div class="col-sm-4">
+                    <button type="submit" class="btn btn-primary btn-block btn-large"><strong><b>Predict</b></strong></button>
+                </div>
+            </div>
+        </form>
+    </div>
+<br>
+<strong><p id="pred" style="text-align: center;font-size: larger"></p></strong>
+                        <script>
+
+
+                          document.getElementById("postForm").addEventListener('submit',getData);
+                               
+                          function getData(e){
+                              e.preventDefault();
+                              
+                              var CreditScore= document.getElementById('CreditScore').value;
+                              var FirstTimeHomebuyer= document.getElementById('FirstTimeHomebuyer').value;
+                              var MSA= document.getElementById('MSA').value;
+                              var MIP= document.getElementById('MIP').value;
+                              var Units= document.getElementById('Units').value;
+                              var Occupancy= document.getElementById('Occupancy').value;
+                              var OCLTV= document.getElementById('OCLTV').value; 
+                              var DTI= document.getElementById('DTI').value;
+                              var OrigUPB= document.getElementById('OrigUPB').value;                                                           
+                              var OrigInterestRate= parseFloat(document.getElementById('OrigInterestRate').value);
+                              var Channel= document.getElementById('Channel').value;
+                              var PPM= document.getElementById('PPM').value;
+                              var PropertyState= document.getElementById('PropertyState').value;
+                              var PropertyType= document.getElementById('PropertyType').value;
+                              var LoanPurpose= document.getElementById('LoanPurpose').value;
+                              var OrigLoanTerm= document.getElementById('OrigLoanTerm').value;
+                              var NumBorrowers= document.getElementById('NumBorrowers').value;
+                              var SellerName= document.getElementById('SellerName').value;
+                              var ServicerName= document.getElementById('ServicerName').value;                                               
+                              var MonthsDelinquent= document.getElementById('MonthsDelinquent').value;
+                              var MonthsInRepayment= document.getElementById('MonthsInRepayment').value;
+                              
+                              var params={user_CreditScore:CreditScore, user_FirstTimeHomebuyer:FirstTimeHomebuyer, user_MSA:MSA, user_MIP:MIP, user_Units:Units,
+                              user_Occupancy:Occupancy, user_OCLTV:OCLTV, user_DTI:DTI,  user_OrigUPB:OrigUPB, user_OrigInterestRate:OrigInterestRate, user_Channel:Channel,
+                              user_PPM:PPM, user_PropertyState:PropertyState, user_PropertyType:PropertyType, user_LoanPurpose:LoanPurpose, user_OrigLoanTerm:OrigLoanTerm,
+                              user_NumBorrowers:NumBorrowers,user_SellerName:SellerName, user_ServicerName:ServicerName,  user_MonthsDelinquent:MonthsDelinquent, user_MonthsInRepayment:MonthsInRepayment}
+
+                              var xhr=new XMLHttpRequest();
+                              xhr.open('post','../output',true);
+                              xhr.setRequestHeader('Content-type','application/json');
+                              console.log(this.responseText)
+                              xhr.onload=function()
+                              {
+                                document.getElementById('pred').innerHTML=this.responseText;
+                              }
+                              xhr.send(JSON.stringify(params));
+                          
+                          
+                            }
+                      
+                         </script>
+                        
+                      </div class="footer">
+                      <footer class="my-5 pt-5 text-muted text-center text-small">
+                          <p class="mb-1"><strong> ©2022 Developed using Flask and Heroku by </strong></p>
+                          <ul class="list-inline">
+                            <li class="list-inline-item"><a href="https://www.linkedin.com/in/sri-lakshmi-prasanna-koneru-a39521194" target="blank" >Sri Lakshmi Prasanna Koneru</a></li>
+                            <li class="list-inline-item"><a href="https://www.linkedin.com/in/jatin-dhanani-573a92206" target="blank" >Jatin Dhanani</a></li>
+                            <li class="list-inline-item"><a href="https://www.linkedin.com/in/deeven-saam-4706a3194/">Saam Prasanth Deeven Pedapalli</a></li>
+                          </ul>
+                      </footer>
+                  
+
+
+
+                      </body>
+                      </html>
+
+
+
