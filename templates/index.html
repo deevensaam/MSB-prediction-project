@@ -14,7 +14,8 @@
               .header-right {
             float: right;
             }
-            
+         
+            .pointer {cursor: pointer;}
  
     </style>
     
@@ -33,13 +34,14 @@
 
               <div class="row">
                 <div class="col-sm-4">
-                    <label for="CreditScore"><b>Credit score: </b></label>    	
-                    <input class="form-control" type="number" id="CreditScore" name="CreditScore" placeholder="CreditScore" min="300" max="850" required>            
+                  
+                    <label for="CreditScore"><b><span title = "A number, prepared by third parties, summarizing the borrower’s creditworthiness, which may be indicative of the likelihood that the borrower will timely repay future obligations. Generally, the credit score disclosed is the score known at the time of acquisition and is the score used to originate the mortgage.">Credit score: </span></b></label> 
+                    <input class="form-control" type="number" id="CreditScore" name="CreditScore" placeholder="CreditScore" min="300" max="850" required>   
                 </div>
               
 
                 <div class="col-sm-4">
-                  <label for="FirstTimeHomebuyer"><b>First Time Home Buyer: </b></label>
+                  <label for="FirstTimeHomebuyer"><b><span title = "First Time Home Buyer">First Time Home Buyer: </span></b></label>
                   <select class="form-select" id="FirstTimeHomebuyer" name="FirstTimeHomebuyer" required>
                       <option value=" Y"> Yes</option>
                       <option value=" N"> No</option>
@@ -48,7 +50,7 @@
 
               
               <div class="col-sm-4">
-                <label for="MSA"><b>Marketing Services Agreement: </b></label>
+                <label for="MSA"><b><span title="Marketing Services Agreement:" >Marketing Services Agreement: </span> </b></label>
                 <input class="form-select" id="MSA" name="MSA" placeholder="5 digit number(X if not available)" required>
                 <!-- <select class="form-select" id="MSA" name="MSA"> 
                 <option value = " "> </option>option>  
@@ -59,13 +61,13 @@
 
             <div class="row">
             <div class="col-sm-4">
-              <label for="MIP"><b>Mortgage Insurance Percentage: </b></label>    	
+              <label for="MIP"><b><span title="The percentage of loss coverage on the loan, at the time of Freddie Mac’s purchase of the mortgage loan that a mortgage insurer is providing to cover losses incurred as a result of a default on the loan." >Mortgage Insurance Percentage: </span></b></label>    	
               <input class="form-control" type="number" id="MIP" name="MIP" placeholder="0 to 55" min="0" max="55" required>            
           </div>
 
 
           <div class="col-sm-4">
-            <label for="Units"><b>Units: </b></label>
+            <label for="Units"><b><span title="Units: " >Units: </span></b></label>
             <select class="form-select" id="Units" name="Units">
                 <option value=" 1"> 1</option>
                 <option value=" 2"> 2</option>
@@ -75,7 +77,7 @@
         </div>
 
                 <div class="col-sm-4">
-                    <label for="Occupancy"><b>Occupancy: </b></label>
+                    <label for="Occupancy"><b><span title="Occupancy: " >Occupancy: </span></b></label>
                     <select class="form-select" id="Occupancy" name="Occupancy">
                         <option value=" O"> Owner occupied</option>
                         <option value=" I"> Investment property</option>
@@ -87,30 +89,30 @@
                 
                 <div class="row">
                 <div class="col-sm-4">
-                  <label for="OCLTV"><b>Original Combined Loan to Value: </b></label>    	
+                  <label for="OCLTV"><b><span title="In the case of a purchase mortgage loan, the ratio is obtained by dividing the original mortgage loan amount on the note date plus any secondary mortgage loan amount disclosed by the Seller by the lesser of the mortgaged property’s appraised value on the note date or its purchase price.">Original Combined Loan to Value: </span></b></label>    	
                   <input class="form-control" type="number" id="OCLTV" name="OCLTV" placeholder="40 to 110" min="40" max="110" required>            
               </div>
 
                 <div class="col-sm-4">
-                    <label for="DTI"><b>Debt to income: </b></label>
+                    <label for="DTI"><b><span title="Disclosure of the debt to income ratio is based on (1) the sum of the borrower's monthly debt payments, including monthly housing expenses that incorporate the mortgage payment the borrower is making at the time of the delivery of the mortgage loan to Freddie Mac, divided by (2) the total monthly income used to underwrite the loan as of the date of the origination of the such loan.">Debt to income: </span></b></label>
                     <input class="form-control" type="number" id="DTI" name="DTI" placeholder="0 to 65" min ="0" max = "65" required>
                 </div>
                   
                 <div class="col-sm-4">
-                  <label for="OrigUPB"><b>Original Unpaid balance: </b></label>
+                  <label for="OrigUPB"><b><span title="Original Unpaid balance: ">Original Unpaid balance: </span></b></label>
                   <input class="form-control" type="number" id="OrigUPB" name="OrigUPB" placeholder="10000 to 272000" min ="10000" max = "272000" required>
               </div>
             </div><br>
 
             <div class="row">
                 <div class="col-sm-4">
-                    <label for="OrigInterestRate"><b>OrigInterestRate: </b></label>
+                    <label for="OrigInterestRate"><b><span title="OrigInterestRate: ">OrigInterestRate: </span></b></label>
                     <input class="form-control" id="OrigInterestRate" name="OrigInterestRate" placeholder="Interest rate of loan" min="5" max="12" required>
                 </div>
 
 
                 <div class="col-sm-4">
-                    <label for="Channel"><b>Channel: </b></label>
+                    <label for="Channel"><b><span title="Channel: ">Channel: </span></b></label>
                     <select class="form-select" id="Channel" name="Channel">
                         <option value=" T"> Third party</option>
                         <option value=" R"> Retail</option>
@@ -121,7 +123,7 @@
 
 
               <div class="col-sm-4">
-                <label for="PPM"><b>PPM: </b></label>
+                <label for="PPM"><b><span title="Denotes whether the mortgage is a PPM. A PPM is a mortgage with respect to which the borrower is, or at any time has been, obligated to pay a penalty in the event of certain repayments of principal.">PPM: </span></b></label>
                 <select class="form-select" id="PPM" name="PPM">
                     <option value=" Y"> Yes</option>
                     <option value=" N"> No</option>
@@ -131,7 +133,7 @@
 
             <div class="row">
                 <div class="col-sm-4">
-                    <label for="PropertyState"><b>Property state: </b></label>
+                    <label for="PropertyState"><b><span title="Property state: ">Property state: </span></b></label>
                     <select class="form-select" id="PropertyState" name="PropertyState">
                      <option value=" IL"> IL</option>
                         <option value=" CO"> CO</option>
@@ -191,7 +193,7 @@
                 </div>
 
                 <div class="col-sm-4">
-                    <label for="PropertyType"><b>Property Type: </b></label>
+                    <label for="PropertyType"><b><span title="Property Type: ">Property Type: </span></b></label>
                     <select class="form-select" id="PropertyType" name="PropertyType">
                         <option value=" SF"> Single Family</option>
                         <option value=" PU"> Planned unit development</option>
@@ -205,7 +207,7 @@
                 
 
                 <div class="col-sm-4">
-                    <label for="LoanPurpose"><b>Purpose of loan: </b></label>
+                    <label for="LoanPurpose"><b><span title="Purpose of loan: ">Purpose of loan: </span></b></label>
                     <select class="form-select" id="LoanPurpose" name="LoanPurpose">
                        <option value=" P"> Purchase mortgage</option>
                        <option value=" N"> No cash out reference mortgage </option>
@@ -216,13 +218,13 @@
 
               <div class="row">
                 <div class="col-sm-4">
-                  <label for="OrigLoanTerm"><b>Original Loan Team: </b></label>
+                  <label for="OrigLoanTerm"><b><span title="A calculation of the number of scheduled monthly payments of the mortgage based on the First Payment Date and Maturity Date.">Original Loan Team: </span></b></label>
                   <input class="form-control" type="number" id="OrigLoanTerm" name="OrigLoanTerm" placeholder="OrigLoanTerm" min="300" max="370" required>
               </div>
 
               
                 <div class="col-sm-4">
-                    <label for="NumBorrowers"><b>Number of Borrowers:</b></label>
+                    <label for="NumBorrowers"><b><span title="NThe number of Borrower(s) who are obligated to repay the mortgage note secured by the mortgaged property.">Number of Borrowers:</span></b></label>
                     <select class="form-select" id="NumBorrowers" name="NumBorrowers">
                         <option value=" 1"> 1</option>
                         <option value=" 2"> 2</option>
@@ -231,7 +233,7 @@
 
 
                 <div class="col-sm-4">
-                  <label for="SellerName"><b>Name of seller: </b></label>
+                  <label for="SellerName"><b><span title="Name of seller: ">Name of seller: </span></b></label>
                   <select class="form-select" id="SellerName" name="SellerName">
                       <option value=" FL"> FL</option>
                       <option value=" FT"> FT</option>
@@ -260,7 +262,7 @@
 
             <div class="row">
                 <div class="col-sm-4">
-                  <label for="ServicerName"><b>Name of the bank: </b></label>
+                  <label for="ServicerName"><b><span title="Name of the bank: ">Name of the bank: </span></b></label>
                   <select class="form-select" id="ServicerName" name="ServicerName">
                    <option value=" WASHINGTONMUTUALBANK"> WASHINGTONMUTUALBANK</option>
                      <option value=" CHASEHOMEFINANCELLC "> CHASEHOMEFINANCELLC </option>
@@ -288,12 +290,12 @@
             
 
                 <div class="col-sm-4">
-                  <label for="MonthsDelinquent"><b>Months Delinquent: </b></label>
+                  <label for="MonthsDelinquent"><b><span title="Months Delinquent: ">Months Delinquent: </span></b></label>
                   <input class="form-control" type="number" id="MonthsDelinquent" name="MonthsDelinquent" placeholder="MonthsDelinquent" min="0" max="180" required>
               </div>
 
               <div class="col-sm-4">
-                <label for="MonthsInRepayment"><b>Months In Repayment: </b></label>
+                <label for="MonthsInRepayment"><b><class="pointer"> <span title="Months In Repayment: "> Months In Repayment: </span></b></label>
                 <input class="form-control" type="number" id="MonthsInRepayment" name="MonthsInRepayment" placeholder="MonthsInRepayment" min="1" max="212" required>
             </div>
           </div><br>
@@ -355,16 +357,24 @@
                           
                           
                             }
-                       
+                      
                          </script>
                         
                       </div class="footer">
                       <footer class="my-5 pt-5 text-muted text-center text-small">
                           <p class="mb-1"><strong> ©2022 Developed using Flask and Heroku by </strong></p>
                           <ul class="list-inline">
+                            <li class="list-inline-item"><a href="https://www.linkedin.com/in/sri-lakshmi-prasanna-koneru-a39521194" target="blank" >Sri Lakshmi Prasanna Koneru</a></li>
+                            <li class="list-inline-item"><a href="https://www.linkedin.com/in/jatin-dhanani-573a92206" target="blank" >Jatin Dhanani</a></li>
                             <li class="list-inline-item"><a href="https://www.linkedin.com/in/deeven-saam-4706a3194/" target="blank" >Saam Prasanth Deeven Pedapalli</a></li>
+                            <!-- <style>
+                              li{
+                                  cursor: pointer;
+                            margin: 15px 0;
+                              }
+                          </style> -->
 
-                              <a href="https://github.com/deevensaam/MSB-prediction-project.git" target="blank" text= Github < style="font-size:40px" class="fa"><img src = "https://cdn-icons-png.flaticon.com/512/25/25231.png" style= "width:3%""></img></a>
+                              <a href="https://github.com/kslp2002/TeamB_Model_Deployment.git" target="blank" text= Github < style="font-size:40px" class="fa"><img src = "https://cdn-icons-png.flaticon.com/512/25/25231.png" style= "width:3%""></img></a>
                                                   
                           </ul>
 
