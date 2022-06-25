@@ -22,5 +22,9 @@ Some of the noteworthy features of the dataset are:
 Credit score of the client, The maturity date of the mortgage, The amount or percentage of insurance on the mortgage, Debt to income ration of the borrower, Mortgage interest rate, Prepayment Penalty Mortgage - denotes if there is any penalty levied on prepayment of loan, Loan sequence number - denotes the unique loan ID, The purpose of the loan, The number of borrowers issued on the loan, The property type, the state in which property is and its postal code and address, The information about the seller and service company. HARP indicator – denotes if the loan is HARP or non-HARP and Interest only indicator - Denotes if the loan requires only the interest
 payments over the period of maturity or not.
 
+Conclusion:
+
+Above the output predicted by our model is There is a risk of prepayment . if there a prepayment risk for the loan then the model predicts No risk of prepayment.
+
 Deployment link :
 https://prepayment-prediction.herokuapp.com/
